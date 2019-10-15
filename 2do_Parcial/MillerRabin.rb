@@ -34,6 +34,19 @@ def miller_rabin(a, n, iter)
 	if esCongruente?(b, 1, n)
 		return true
 	end
+	puts('Iterando ' + iter.to_s + ' veces');
+	esPrimo = false;
+	(0... iter).each do |i|
+		puts('Iteración ' + (i+1).to_s + ': ' );
+		if esCongruente(b, -1, n)
+			puts('No es primo en la iteración ' + (i + 1 ).to_i);
+		else
+			b = (b ** 2) % n;
+			esPrimo = true;
+			break;
+		end
+	end
+	return esPrimo
 end
 puts('------------ Inputs -----------------')
 puts('Introduzca n:');
