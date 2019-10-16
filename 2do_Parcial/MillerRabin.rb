@@ -38,10 +38,11 @@ def miller_rabin(a, n, iter)
 	esPrimo = false;
 	(0... iter).each do |i|
 		puts('Iteración ' + (i+1).to_s + ': ' );
-		if esCongruente(b, -1, n)
-			puts('No es primo en la iteración ' + (i + 1 ).to_i);
+		if esCongruente?(b, -1, n) == false
+			puts('No es primo en la iteración ' + (i + 1 ).to_s);
+			b = ( b ** 2 ) % n;
 		else
-			b = (b ** 2) % n;
+			puts('Es primo en la iteración ' + (i + 1).to_s );
 			esPrimo = true;
 			break;
 		end
